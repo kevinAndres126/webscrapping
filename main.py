@@ -45,7 +45,6 @@ def scraHref():
 def scrapearPage():
     for i in lista:
         page = requests.get(i)
-        #page = requests.get("http://crautos.com/rautosusados/cardetail.cfm?c=20040600")
         status_code1 = page.status_code
         if status_code1 == 200:
             html = BeautifulSoup(page.text, "html.parser")
@@ -93,7 +92,7 @@ def scrapearPage():
         else:
             print "Status Code %d" % status_code1
 
-def printListaCarros():
+def postDB():
     for x in listaCarros:
         from firebase import firebase
         data = {'Marca': x.Marca, 'Precio': x.Precio,'Ano': x.Ano,'Cilindrada': x.Cilindrada,'Estilo':x.Estilo,'Combustible':x.Combustible,'Transmision':x.Transmision,'Kilometraje':x.Kilometraje,
@@ -116,7 +115,7 @@ def requestFirebase():
 
 
 
-scraHref()
-scrapearPage()
-printListaCarros()
-requestFirebase()
+#scraHref()
+#scrapearPage()
+#postDB()
+#requestFirebase()
